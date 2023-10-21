@@ -1,0 +1,26 @@
+.controls {
+	float: right;
+	width: 32%
+}
+
+.compartment {
+	border-style: inset;
+	border-width: 2px;
+	padding: 5px
+}
+p {
+	margin: 0px;
+}
+
+button {
+	margin: 3px;
+}
+
+.button-active {
+	border-style: inset;
+	border-width: 4px;
+}
+
+select {
+	height: 30px;
+}

@@ -1,0 +1,96 @@
+<div class="controls" id="controls" style="overflow:scroll; height:1000px;">
+	<div class="compartment">
+		<button [ngClass]="{'button-active' : ui.state == 0}" (click)="clickCursor()">Cursor</button>
+		<button [ngClass]="{'button-active' : ui.state == 4}"  (click)="clickErase()">Erase</button>
+	</div>
+	<div class="compartment">
+		<button [ngClass]="{'button-active' : ui.addingChip.ressource == 0}" (click)="clickRessource(0)" style="border-radius: 5px; background-color: #41963c; height: 30px; width: 30px;"></button>
+		<button [ngClass]="{'button-active' : ui.addingChip.ressource == 1}" (click)="clickRessource(1)" style="border-radius: 5px; background-color: #d0622e; height: 30px; width: 30px;"></button>
+		<button [ngClass]="{'button-active' : ui.addingChip.ressource == 2}" (click)="clickRessource(2)" style="border-radius: 5px; background-color: #96b321; height: 30px; width: 30px;"></button>
+		<button [ngClass]="{'button-active' : ui.addingChip.ressource == 3}" (click)="clickRessource(3)" style="border-radius: 5px; background-color: #eabb35; height: 30px; width: 30px;"></button>
+		<button [ngClass]="{'button-active' : ui.addingChip.ressource == 4}" (click)="clickRessource(4)" style="border-radius: 5px; background-color: #a4a9a5; height: 30px; width: 30px;"></button>
+		<button [ngClass]="{'button-active' : ui.addingChip.ressource == 5}" (click)="clickRessource(5)" style="border-radius: 5px; background-color: #ffd700; height: 30px; width: 30px;"></button>
+            <select [(ngModel)]="ui.addingChip.prodNumber" name="chipnumber" id="chipnumber">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            </select>
+	</div>
+	<div class="compartment">
+		<button [ngClass]="{'button-active' : ui.addingFill.filler == 0}" (click)="clickFiller(0)" style="border-radius: 5px; background-color: #FAD5A5; height: 30px; width: 30px;"></button>
+		<button [ngClass]="{'button-active' : ui.addingFill.filler == 1}" (click)="clickFiller(1)" style="border-radius: 5px; background-color: #2f67a3; height: 30px; width: 30px;"></button>
+	</div>
+	<div class="compartment">
+		<p>Groups</p>
+		<div class="compartment" *ngFor="let group of map.groups">
+			{{group.id}}
+			<button (click)="clickGroupDelete(group.id)" style="float: right;">- Group</button>
+			<br>
+			<button [ngClass]="{'button-active' : ui.state == 3 && ui.group.id == group.id}" (click)="clickGroupAddTiles(group.id)">Add Tiles</button>
+			<br>
+			<button (click)="clickGroupAddPocket(group.id)">Add Pockets</button>
+			<div *ngFor="let pocket of group.pockets;index as i">
+				<div class="compartment">
+					<button style="float: right" (click)="clickGroupPocketRemove(group.id, i)">- Pocket</button>
+					<p style="margin-bottom: 10px;">Tiles</p>
+					<div *ngFor="let ressource of pocket.ressources;index as ressourceIndex ">
+						<div class="compartment">
+							<button style="float: right" (click)="clickGroupPocketRessourceRemove(group.id,i, ressourceIndex)">- Tiles</button>
+							<select style="height: 25px" [(ngModel)]="ressource.ressource" name="chipnumber" id="chipnumber">
+								<option value="0">Wood</option>
+								<option value="1">Brick</option>
+								<option value="2">Sheep</option>
+								<option value="3">Wheat</option>
+								<option value="4">Ore</option>
+								<option value="5">Gold</option>
+								<option value="6">Desert</option>
+								<option value="7">Water</option>
+							</select>
+							<input style="margin-left: 5px; width: 30px; height: 25px" [(ngModel)]="ressource.count">
+						</div>
+					</div>
+					<button (click)="clickGroupAddPocketRessource(group.id, i)">+ Tiles</button>
+					<br>
+					<p>Numbers</p>
+					<div class="compartment" *ngFor="let number of pocket.numbers; index as numberIndex">
+						<button style="float: right" (click)="clickGroupPocketNumberRemove(group.id,i, numberIndex)">- Numbers</button>
+						<select [(ngModel)]="number.number" name="chipnumber" id="chipnumber">
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							</select>	
+							<input style="margin-left: 5px; width: 30px; height: 25px" [(ngModel)]="number.count">
+					</div>
+					<button (click)="clickGroupAddPocketNumbers(group.id, i)">+ Numbers</button>
+				</div>
+			</div>
+		</div>
+		<button (click)="clickGroupAdd()">+</button>
+		<button (click)="mapShow()">GENERATE</button>
+	</div>
+
+	<div class="compartment">
+		<button (click)="clickDownloadMap()">DOWNLOAD</button>
+		<input type="file" id="file" (change)="clickUploadMap($event)">
+	</div>
+	<div class="compartment">
+		<button (click)="clickGenerateLink()">Generate Link</button>
+		<p>{{link}}</p>
+	</div>
+</div>
