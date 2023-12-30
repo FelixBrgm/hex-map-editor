@@ -8,5 +8,5 @@
 	"extensions": [
 		"PKief.material-icon-theme"
 	],
-	"workspaceFolder": "/workspaces/hex/source" // change 42-ft_transendence to name of repo when copied
+	"workspaceFolder": "/workspaces/hex-map-editor//source" // change 42-ft_transendence to name of repo when copied
 }
