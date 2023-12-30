@@ -1,0 +1,12 @@
+{
+	"name": "hex",
+	"dockerFile": "./Dockerfile",
+	"forwardPorts": [4242, 4242],
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+	},
+	"extensions": [
+		"PKief.material-icon-theme"
+	],
+	"workspaceFolder": "/workspaces/hex/source" // change 42-ft_transendence to name of repo when copied
+}
