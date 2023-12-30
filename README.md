@@ -1,4 +1,4 @@
-# Catan-map-editor
+# hex-map-editor
 ![Pic1](pic1.jpeg)
 
 # Usage
