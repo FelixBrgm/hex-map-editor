@@ -24,6 +24,6 @@ Think of pockets like real life ones for a give group of fields one random tile 
 
 - Open a terminal
 - Run `ng serve` . Navigate to `http://localhost:4200/`.
-- If you get a `ng command not found` error you may have to `npm i` + `npm install -g @angular/cli` to get it running. (npm as we love it <3)
+- If you get a `ng command not found` error you may have to `npm i` + `npm install -g @angular/cli` (v14.2.1 working) to get it running.
 
 Hope it brings you as many amazing game nights as it gave me ^^
