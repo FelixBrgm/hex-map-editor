@@ -11,7 +11,7 @@ Think of pockets like real life ones for a give group of fields one random tile 
 
 ## 1. Open this project in a codespace
 
-- Click on <> Code 
+- Click on green `<> Code` button at the top of the page. 
 - Choose the `Codespace` tab
 - Click `Create codespace on master`
 
